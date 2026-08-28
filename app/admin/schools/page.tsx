@@ -10,9 +10,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { schools } from "@/lib/mock-data";
+import { listSchools } from "@/lib/schools-store";
 
-export default function AdminSchoolsPage() {
+// Danh sách trường tham chiếu — lấy mới từ Supabase mỗi lần tải trang.
+export const dynamic = "force-dynamic";
+
+export default async function AdminSchoolsPage() {
+  const schools = await listSchools();
+
   return (
     <>
       <AdminPageHeader
