@@ -126,6 +126,155 @@ export type Database = {
           },
         ]
       }
+      scholarships: {
+        Row: {
+          created_at: string
+          id: string
+          min_gpa: number | null
+          min_ielts: number | null
+          name: string
+          school_id: string
+          support_label: string
+          support_percent: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          min_gpa?: number | null
+          min_ielts?: number | null
+          name: string
+          school_id: string
+          support_label: string
+          support_percent: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          min_gpa?: number | null
+          min_ielts?: number | null
+          name?: string
+          school_id?: string
+          support_label?: string
+          support_percent?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "scholarships_school_id_fkey"
+            columns: ["school_id"]
+            isOneToOne: false
+            referencedRelation: "schools"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      schools: {
+        Row: {
+          country: string
+          created_at: string
+          id: string
+          min_gpa: number
+          min_ielts: number
+          name: string
+        }
+        Insert: {
+          country: string
+          created_at?: string
+          id?: string
+          min_gpa: number
+          min_ielts: number
+          name: string
+        }
+        Update: {
+          country?: string
+          created_at?: string
+          id?: string
+          min_gpa?: number
+          min_ielts?: number
+          name?: string
+        }
+        Relationships: []
+      }
+      student_profiles: {
+        Row: {
+          created_at: string
+          id: string
+          identity_date_of_birth: string | null
+          identity_document_number: string | null
+          identity_file_name: string | null
+          identity_full_name: string | null
+          identity_reason: string | null
+          identity_status: string
+          ielts_exam_date: string | null
+          ielts_file_name: string | null
+          ielts_full_name: string | null
+          ielts_listening: number | null
+          ielts_overall: number | null
+          ielts_reading: number | null
+          ielts_reason: string | null
+          ielts_speaking: number | null
+          ielts_status: string
+          ielts_writing: number | null
+          transcript_date_of_birth: string | null
+          transcript_file_name: string | null
+          transcript_full_name: string | null
+          transcript_gpa: number | null
+          transcript_reason: string | null
+          transcript_status: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          identity_date_of_birth?: string | null
+          identity_document_number?: string | null
+          identity_file_name?: string | null
+          identity_full_name?: string | null
+          identity_reason?: string | null
+          identity_status?: string
+          ielts_exam_date?: string | null
+          ielts_file_name?: string | null
+          ielts_full_name?: string | null
+          ielts_listening?: number | null
+          ielts_overall?: number | null
+          ielts_reading?: number | null
+          ielts_reason?: string | null
+          ielts_speaking?: number | null
+          ielts_status?: string
+          ielts_writing?: number | null
+          transcript_date_of_birth?: string | null
+          transcript_file_name?: string | null
+          transcript_full_name?: string | null
+          transcript_gpa?: number | null
+          transcript_reason?: string | null
+          transcript_status?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          identity_date_of_birth?: string | null
+          identity_document_number?: string | null
+          identity_file_name?: string | null
+          identity_full_name?: string | null
+          identity_reason?: string | null
+          identity_status?: string
+          ielts_exam_date?: string | null
+          ielts_file_name?: string | null
+          ielts_full_name?: string | null
+          ielts_listening?: number | null
+          ielts_overall?: number | null
+          ielts_reading?: number | null
+          ielts_reason?: string | null
+          ielts_speaking?: number | null
+          ielts_status?: string
+          ielts_writing?: number | null
+          transcript_date_of_birth?: string | null
+          transcript_file_name?: string | null
+          transcript_full_name?: string | null
+          transcript_gpa?: number | null
+          transcript_reason?: string | null
+          transcript_status?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
